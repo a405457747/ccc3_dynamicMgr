@@ -5,6 +5,7 @@ const { ccclass, property } = _decorator;
 export class NumJump extends Component {
 
     @property jumpSpeed:number=1.5;
+    @property       isFormat:boolean=false;
 
     private timer:number;
 
@@ -12,7 +13,7 @@ export class NumJump extends Component {
     private targetVal:number;
 
     private label:Label;
-    private  isFormat:boolean;
+
 
     protected onLoad(): void {
         this.label=this.getComponent(Label);
@@ -20,12 +21,11 @@ export class NumJump extends Component {
     }
 
     start() {
-        
         this.test();
     }
 
     test(){
-            this.init(200);
+            //this.init(200);
             
             tween(this.node)
             .delay(2)
@@ -61,12 +61,12 @@ export class NumJump extends Component {
 
     }
 
-    init(initVal:number=0,timer:number=1,isFormat:boolean=false){
+    init(initVal:number=0,timer:number=1){
         this.initVal=initVal;
         this.targetVal=this.initVal;
         this.timer =timer;
 
-        this.isFormat=isFormat;
+    
     }
 
     changeLabel(val:number){
@@ -74,7 +74,7 @@ export class NumJump extends Component {
         if(this.isFormat===false){
             this.label.string=val.toString();
         }else {
-            this.label.string=val.toString();
+            this.label.string=val.toLocaleString('en-US');
         }
     }
 
