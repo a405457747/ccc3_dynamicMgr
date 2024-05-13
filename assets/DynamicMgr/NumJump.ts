@@ -21,7 +21,7 @@ export class NumJump extends Component {
     }
 
     start() {
-        this.test();
+       // this.test();
     }
 
     test(){
